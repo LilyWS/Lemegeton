@@ -7,6 +7,7 @@ from engine import Engine
 import entity_factories
 from procgen import generate_dungeon
 
+
 def main() -> None:
     screen_width = 80
     screen_height = 50
@@ -35,9 +36,8 @@ def main() -> None:
         map_width=map_width,
         map_height=map_height,
         max_monsters_per_room=max_monsters_per_room,
-        engine=engine
+        engine=engine,
     )
-
     engine.update_fov()
 
     with tcod.context.new_terminal(
@@ -52,6 +52,7 @@ def main() -> None:
             engine.render(console=root_console, context=context)
 
             engine.event_handler.handle_events()
+
 
 if __name__ == "__main__":
     main()
